@@ -1,1 +1,20 @@
+'''Укажите путь к папке на диске dir_path = os.chdir(r'Ваш путь к папке'). Запустите скрипт, результат будет в той же папке'''
+from moviepy.editor import VideoFileClip, concatenate_videoclips
+import os
+
+
+def vid(q):
+    final_clip = concatenate_videoclips(q)
+    final_clip.write_videofile("my_concatenation.mp4")  # Файл запишется в ту же папку с видео
+
+
+dir_path = os.chdir(r'e:\1')  # Укажите путь к папке с видео
+z = os.listdir(dir_path)
+q = []
+for i in z:
+    clip = VideoFileClip(i)
+    q.append(clip)
+print(q)
+if __name__ == "__main__":
+    vid(q)
 
